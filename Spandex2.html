@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalSave Bank</title>
+<style>
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#eef2ff,#dbeafe,#f8fafc);
+    color:#1e293b;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#0b57d0,#2563eb,#1d4ed8);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+header h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+    opacity:0.9;
+}
+
+/* NAVIGATION */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:18px;
+    background:white;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    text-decoration:none;
+    color:#0b57d0;
+    font-weight:600;
+    transition:0.3s ease;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    width:0%;
+    height:2px;
+    background:#0b57d0;
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+/* MAIN CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* CARD DESIGN */
+.card{
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+}
+
+.hero h2{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#0b57d0;
+}
+
+/* GRID FEATURES */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.grid .card{
+    text-align:center;
+}
+
+.grid h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* FORM INPUTS */
+input,
+select{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    font-size:15px;
+    transition:0.3s;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    background:linear-gradient(135deg,#0b57d0,#2563eb);
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:scale(1.03);
+    box-shadow:0 8px 20px rgba(37,99,235,0.25);
+}
+
+/* SMALL TEXT */
+.small{
+    font-size:14px;
+    color:#64748b;
+    margin-top:15px;
+}
+
+/* RESULT */
+#result{
+    margin-top:15px;
+    font-size:18px;
+    font-weight:600;
+    color:#0b57d0;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    header h1{
+        font-size:28px;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>GlobalSave Payment Service Bank</h1>
+<p>Save in USD. Secure digital banking.</p>
+</header>
+<nav>
+<a href="#open">Open Account</a>
+<a href="#savings">USD Savings</a>
+<a href="#features">Features</a>
+</nav>
+<div class="container">
+<section class="hero card">
+<h2>Open a USD Savings Account Online</h2>
+<p>Keep balances in US Dollars, monitor growth, and manage transfers from one dashboard.</p>
+</section>
+<section id="features" class="grid">
+<div class="card"><h3>USD Wallet</h3><p>Store and manage balances in USD.</p></div>
+<div class="card"><h3>Fast Transfers</h3><p>Move funds between supported accounts quickly.</p></div>
+<div class="card"><h3>Account Security</h3><p>Login alerts, PIN, and verification controls.</p></div>
+</section>
+<section id="open" class="card">
+<h2>Create Account</h2>
+<form onsubmit="createAccount(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<select required><option value="">Select Country</option><option>Nigeria</option><option>Ghana</option><option>Kenya</option><option>United States</option></select>
+<input type="password" placeholder="Create Password" required>
+<button type="submit">Open Account</button>
+</form>
+<p class="small">Demo interface only. Connect a real backend for production use.</p>
+</section>
+<section id="savings" class="card">
+<h2>USD Savings Calculator</h2>
+<input id="amount" type="number" placeholder="Deposit Amount (USD)">
+<input id="rate" type="number" placeholder="Annual Interest %" value="4">
+<button onclick="calcSavings()">Calculate 1 Year Estimate</button>
+<p id="result"></p>
+</section>
+</div>
+<footer>© 2026 GlobalSave Bank</footer>
+<script>
+function createAccount(e){e.preventDefault();alert('Account created successfully (demo).');}
+function calcSavings(){const a=parseFloat(document.getElementById('amount').value)||0;const r=parseFloat(document.getElementById('rate').value)||0;const total=a+(a*r/100);document.getElementById('result').innerText='Estimated balance after 1 year: $'+total.toFixed(2);}
+</script>
+</body>
+</html>
